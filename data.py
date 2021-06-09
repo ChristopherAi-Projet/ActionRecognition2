@@ -18,7 +18,7 @@ def create_generators(data_path=DATASET_PATH):
     train_data_generator = DataGeneratorClassifier(train_list, TRAINING_BATCH_SIZE, TRAINING_IMAGE_SIZE)
     validation_data_generator = DataGeneratorClassifier(val_list, VALIDATION_BATCH_SIZE, VALIDATION_IMAGE_SIZE)
     # test_data_generator = DataGeneratorClassifier(test_list, TESTING_BATCH_SIZE, TESTING_IMAGE_SIZE)
-    return train_data_generator, validation_data_generator, test_data_generator
+    return train_data_generator, validation_data_generator
 
 
 def data_split(paths_list):
@@ -29,7 +29,7 @@ def data_split(paths_list):
     return paths_list[:split_1], paths_list[split_1:split_2], paths_list[split_2:]
 
 
-class DataGeneratorClassifier(keras.utils.Sequence):
+class DataGeneratorClassifier(tf.keras.utils.Sequence):
     'Generates data for Keras'
     def __init__(self, list_IDs, batch_size, image_size, data_path=DATASET_PATH, n_channels=NUMBER_OF_CHANNELS, shuffle=SHUFFLE_DATA,nmbr_image_par_video =NMBR_OF_FRAME_PER_VIDEO ):
         'Initialisation'

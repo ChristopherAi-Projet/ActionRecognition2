@@ -1,4 +1,4 @@
-from params import
+from params import *
 
 def train(generatorTrain, generatorVal):
     model=create_model()
